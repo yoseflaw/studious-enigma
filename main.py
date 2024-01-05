@@ -14,7 +14,7 @@ payload = {
 }
 token = jwt.encode(payload, METABASE_SECRET_KEY, algorithm="HS256")
 
-iframeUrl = METABASE_SITE_URL + "/embed/dashboard/" + token + "bordered=true&titled=true"
+iframeUrl = METABASE_SITE_URL + "/embed/dashboard/" + token + "#bordered=true&titled=true"
 
 # embed streamlit docs in a streamlit app
 st.set_page_config(layout="wide")

@@ -7,8 +7,6 @@ import time
 METABASE_SITE_URL = st.secrets["METABASE_SITE"]
 METABASE_SECRET_KEY = st.secrets["METABASE_SECRET"]
 
-client_list = ["ERA TANI","BCA","AXIATA BOOST"].join(", ")
-
 payload = {
   "resource": {"dashboard": 1},
   "params": {
@@ -21,7 +19,6 @@ token = jwt.encode(payload, METABASE_SECRET_KEY, algorithm="HS256")
 iframeUrl = METABASE_SITE_URL + "/embed/dashboard/" + token + "#bordered=true&titled=true"
 
 # embed streamlit docs in a streamlit app
-st.title(client_list)
 st.set_page_config(layout="wide")
 # components.iframe(iframeUrl, width=300, height=800, scrolling=True)
 components.html(f"""
